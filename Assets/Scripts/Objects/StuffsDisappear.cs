@@ -7,7 +7,9 @@ public class StuffsDisappear : MonoBehaviour
 {
     [SerializeField] private GameObject[] stuffs;
     [SerializeField] private Light[] lights;
-    [SerializeField] private Volume volume;
+    [SerializeField] private Volume Volume;
+
+
     private int stuffsCount = 0;
     private float _time;
     private float timing = 2f;
@@ -44,7 +46,21 @@ public class StuffsDisappear : MonoBehaviour
         float fadeDuration = 2f;
         float fadeTime = 0f;
 
-        
+        if (Volume.profile.TryGet(out ColorAdjustments colorAdjustments))
+        {
+            float initialPostExposure = colorAdjustments.postExposure.value;
+            while (fadeTime < fadeDuration)
+            {
+                fadeTime += Time.deltaTime;
+                float t = fadeTime / fadeDuration;
+
+                colorAdjustments.postExposure.value = Mathf.Lerp(initialPostExposure, -3f, t);
+
+
+                yield return null;
+            }
+        }
+            
 
         float[] startIntensities = new float[lights.Length];
         for (int i = 0; i < lights.Length; i++)
