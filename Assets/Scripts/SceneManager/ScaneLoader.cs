@@ -31,12 +31,12 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadSceneAdditive()
     {
-        if (!sceneLoaded && trigger != null && trigger.DoorId()==3)
+        if (!sceneLoaded && trigger != null && trigger.DoorId() == 3)
         {
 
 
-            //name = "LoadLast";
-            name = "Room5";
+            //ame = "LoadLast";
+            name = "Room4";
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
             sceneLoaded =true ;
         }
