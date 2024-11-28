@@ -31,7 +31,11 @@ public class CheckPointManager : MonoBehaviour
         cake.SetParent(player.transform.GetChild(1));
         cake.position = player.transform.GetChild(1).position + new Vector3(0f, 0.2f, 0f);
         cake.rotation = Quaternion.Euler(0f,0f,0f);
-        cake.GetComponent<Cake>().ResetRigidbody();
+        if(cake !=null)
+        {
+            cake.GetComponent<Cake>().ResetRigidbody();
+        }
+       
         Debug.Log("Load check point");
 
     }

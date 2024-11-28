@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4588886969257957556}
   - component: {fileID: 6344895322423055638}
   - component: {fileID: 1259868419169289861}
-  - component: {fileID: 4660557465933440436}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -3473,26 +3472,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697004358322987194}
-  m_Mesh: {fileID: 0}
---- !u!64 &4660557465933440436
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6697004358322987194}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
   m_Mesh: {fileID: 0}
