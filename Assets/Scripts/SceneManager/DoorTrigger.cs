@@ -8,6 +8,9 @@ public class DoorTrigger : MonoBehaviour
     public UnityEvent doorTrigger;
     public UnityEvent doorTriggerExit;
     private bool canOpen =true;
+    [SerializeField] int doorID = 0;
+    public int DoorId()
+    { return doorID; }
     private void OnTriggerEnter(Collider other)
     {
         if (canOpen && !other.GetComponent<PlayerController>())

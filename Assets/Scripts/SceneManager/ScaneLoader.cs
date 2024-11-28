@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
 
         if (trigger != null)
         {
-            trigger.doorTrigger.AddListener(() =>LoadSceneAdditive(name));
+            trigger.doorTrigger.AddListener(LoadSceneAdditive);
           
         }
     }
@@ -26,15 +26,19 @@ public class SceneLoader : MonoBehaviour
 
         if (trigger != null)
         {
-            trigger.doorTrigger.RemoveListener(() => LoadSceneAdditive(name));
+            trigger.doorTrigger.RemoveListener(LoadSceneAdditive);
          
         }
     }
-    public void LoadSceneAdditive(string name)
+    public void LoadSceneAdditive()
     {
-        Debug.Log("Load scene");
-        name = "LastLevel";
-        SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        if (trigger != null)
+        {
+
+            Debug.Log("Load scene");
+            name = "LoadLast";
+            SceneManager.LoadScene(name, LoadSceneMode.Additive);
+        }
     }
 
     public void QuitGame()

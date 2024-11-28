@@ -40,7 +40,7 @@ public class RoseSpawn : MonoBehaviour
                 );
                 Vector3 spawnPosition = basePosition + randomOffset;
                 GameObject rose = Instantiate(rosePrefab, spawnPosition, Quaternion.identity);
-                Destroy(rose, 30f);
+                Destroy(rose, 10f);
             }
         }
     }

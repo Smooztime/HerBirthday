@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LastLevel.unity
     guid: f8da4f616ae036d4bae51665376ca18f
+  - enabled: 1
+    path: Assets/Scenes/LoadLast.unity
+    guid: dbff607a3e8d9ef4ba0a3cf7ea6328ac
   m_configObjects: {}
