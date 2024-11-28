@@ -1399,12 +1399,12 @@ PrefabInstance:
     - target: {fileID: 4312711927396336552, guid: 25625fab8c48a5b4a9a6b60ff67adb7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: 3.39
       objectReference: {fileID: 0}
     - target: {fileID: 4312711927396336552, guid: 25625fab8c48a5b4a9a6b60ff67adb7f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 146.84
+      value: 182.23999
       objectReference: {fileID: 0}
     - target: {fileID: 4312711927396336552, guid: 25625fab8c48a5b4a9a6b60ff67adb7f,
         type: 3}
@@ -9662,7 +9662,7 @@ Transform:
   m_GameObject: {fileID: 847256191}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.33, y: 1.91, z: 104.1}
+  m_LocalPosition: {x: 16.33, y: 1.9, z: 139.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11086,12 +11086,12 @@ PrefabInstance:
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: 0.05000001
       objectReference: {fileID: 0}
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 117.3
+      value: 152.70001
       objectReference: {fileID: 0}
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}
@@ -11487,12 +11487,12 @@ PrefabInstance:
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 0.59000003
       objectReference: {fileID: 0}
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 146.76
+      value: 182.16
       objectReference: {fileID: 0}
     - target: {fileID: 8483887973006351815, guid: b3b9bdaad1a67724e90ee9a8df033d5b,
         type: 3}

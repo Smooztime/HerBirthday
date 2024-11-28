@@ -6,24 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: df5c119ec26ffc04bbb5c1b96c8c3a3f
-  - enabled: 1
-    path: Assets/Scenes/Smooz.unity
-    guid: f45a1670a243daa4582b04e318a8ab8a
-  - enabled: 1
-    path: Assets/Scenes/Xinghua.unity
-    guid: 890d7d0b133a51149ba433cc6a5023a0
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 5a91a921b3425564f8d6b7641be681fe
   - enabled: 1
-    path: Assets/Scenes/LastLevel.unity
-    guid: f8da4f616ae036d4bae51665376ca18f
+    path: Assets/Scenes/LevelWithCode.unity
+    guid: f9002a02891002e4fb1f692af36731b6
   - enabled: 1
-    path: Assets/Scenes/LoadLast.unity
-    guid: dbff607a3e8d9ef4ba0a3cf7ea6328ac
+    path: Assets/Scenes/Room4.unity
+    guid: db00f4da047ddfe4ca945638f4323fcb
   - enabled: 1
     path: Assets/Scenes/Room5.unity
     guid: e2c280194b79c594faeb5afede6dbcb4
+  - enabled: 1
+    path: Assets/Scenes/Room6.unity
+    guid: df5c119ec26ffc04bbb5c1b96c8c3a3f
+  - enabled: 1
+    path: Assets/Scenes/RoomLast.unity
+    guid: dbff607a3e8d9ef4ba0a3cf7ea6328ac
   m_configObjects: {}
