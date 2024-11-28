@@ -10,6 +10,7 @@ public class TrayBalance : MonoBehaviour
 
     public void TrayRotation(Transform player, float angle)
     {
+        angle = Mathf.Clamp(angle, -15f, 15f);
         transform.localRotation = Quaternion.Euler(0f, 0f, -angle);
     }
 
