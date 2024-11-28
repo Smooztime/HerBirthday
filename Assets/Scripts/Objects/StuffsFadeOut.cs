@@ -16,12 +16,37 @@ public class StuffsFadeOut : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        var stuffMat = gameObject.GetComponent<Renderer>().material;
-        stuffMat.SetFloat("_Surface", 1);
-        stuffMat.SetInt("_ZWrite", 0);
-        stuffMat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-        stuffMat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-        stuffMat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        var stuffMat = gameObject.GetComponent<Renderer>();
+        if(stuffMat != null)
+        {
+            yield return StartCoroutine(FadeAway(stuffMat.material));
+        }
+        else
+        {
+            Renderer[] stuffMats = gameObject.GetComponentsInChildren<Renderer>();
+            List<Coroutine> fadeCoroutine = new List<Coroutine>();
+
+            foreach(Renderer stuff in stuffMats)
+            {
+                fadeCoroutine.Add(StartCoroutine(FadeAway(stuff.material)));
+            }
+
+            foreach(Coroutine fade in fadeCoroutine)
+            {
+                yield return fade;
+            }
+        }
+
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator FadeAway(Material mat)
+    {
+        mat.SetFloat("_Surface", 1);
+        mat.SetInt("_ZWrite", 0);
+        mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
 
         float fadeDuration = 2f;
         float fadeTime = 0f;
@@ -30,10 +55,9 @@ public class StuffsFadeOut : MonoBehaviour
         {
             fadeTime += Time.deltaTime;
             float alpha = Mathf.Lerp(1f, 0f, fadeTime / fadeDuration);
-            stuffMat.color = new Color(stuffMat.color.r, stuffMat.color.g, stuffMat.color.b, alpha);
+            mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, alpha);
             yield return null;
         }
-        gameObject.SetActive(false);
     }
 
     public void SetIsFadeOut(bool value)
