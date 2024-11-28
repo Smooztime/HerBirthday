@@ -44,9 +44,6 @@ public class Cake : MonoBehaviour
         transform.position = transform.localPosition;
         
         Debug.Log("Drop the cake!");
-
-        //add checkPoint
-        CheckPointManager.Instance.LoadCheckpoint();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -54,6 +51,8 @@ public class Cake : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground") || collision.gameObject.layer == LayerMask.NameToLayer("GroundMovement"))
         {
             Debug.Log("Lose! You can not bring your cake to your wife anymore");
+            
+            CheckPointManager.Instance.LoadCheckpoint();
         }
     }
 }

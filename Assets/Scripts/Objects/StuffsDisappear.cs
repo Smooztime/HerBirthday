@@ -29,10 +29,8 @@ public class StuffsDisappear : MonoBehaviour
                 stuffs[stuffs.Length - 2].GetComponent<StuffsFadeOut>().SetIsFadeOut(true);
                 stuffs[stuffs.Length - 1].GetComponent<StuffsFadeOut>().SetIsFadeOut(true);
             }
-            Debug.Log(timing);
 
             yield return new WaitForSeconds(timing);
-            Debug.Log(stuffs[stuffsCount]);
 
             stuffs[stuffsCount].GetComponent<StuffsFadeOut>().SetIsFadeOut(true);
 
