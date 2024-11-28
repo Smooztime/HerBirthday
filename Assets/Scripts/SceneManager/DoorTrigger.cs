@@ -11,13 +11,17 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] int doorID = 0;
     public int DoorId()
     { return doorID; }
-    private void OnTriggerEnter(Collider other)
+
+private void OnTriggerEnter(Collider other)
     {
         if (canOpen && !other.GetComponent<PlayerController>())
         {
-            //load another room
             doorTrigger?.Invoke();
             Debug.Log("player enter room");
+            if (doorID ==4)
+            {
+                SoundManager.Instance.PlaySFX("Fight", 1f);
+            }
         }
     }
     
@@ -25,7 +29,6 @@ public class DoorTrigger : MonoBehaviour
     {
         if (!other.GetComponent<PlayerController>())
         {
-            //load another room
             doorTriggerExit?.Invoke();
             canOpen = false;
         }

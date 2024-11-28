@@ -6,40 +6,48 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] DoorTrigger trigger;
-    private bool sceneLoaded =false;
+    private bool sceneLoaded4 =false;
+    private bool sceneLoaded5 = false;
     public void LoadScene(string name)
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(name);
     }
-    private void OnEnable()
-    {
+    //private void OnEnable()
+    //{
 
-        if (trigger != null)
+    //    if (trigger != null)
+    //    {
+    //        trigger.doorTrigger.AddListener(() =>LoadSceneAdditive(name));
+    //    }
+    //}
+
+    //private void OnDisable()
+    //{
+
+    //    if (trigger != null)
+    //    {
+    //        trigger.doorTrigger.RemoveListener(() =>LoadSceneAdditive(name));
+    //    }
+    //}
+    public void LoadSceneAdditive(string name)
+    {
+        if (!sceneLoaded4 && trigger != null )
         {
-            trigger.doorTrigger.AddListener(LoadSceneAdditive);
+            if (trigger.DoorId() == 3)
+            {
+                Debug.Log("load scene");
+                // name = "Room5";
+                SceneManager.LoadScene(name, LoadSceneMode.Additive);
+                sceneLoaded4 = true;
+            }
         }
-    }
-
-    private void OnDisable()
-    {
-
-        if (trigger != null)
+        else if (!sceneLoaded5 && trigger.DoorId() == 4)
         {
-            trigger.doorTrigger.RemoveListener(LoadSceneAdditive);
-        }
-    }
-    public void LoadSceneAdditive()
-    {
-        if (!sceneLoaded && trigger != null && trigger.DoorId() == 3)
-        {
-
-
-            //ame = "LoadLast";
-            name = "Room4";
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
-            sceneLoaded =true ;
+            sceneLoaded5 = true;
         }
+
     }
 
     public void QuitGame()
