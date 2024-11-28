@@ -24,17 +24,19 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         pauseMenu.SetActive(false);
-      //  inputManager.InputActions.Player.PauseGame.performed += _ => DeterminePause();
+        inputManager.InputActions.Player.PauseGame.performed += _ => DeterminePause();
     }
 
 
     private void OnDisable()
     {
-        //inputManager.InputActions.Player.PauseGame.performed -= _ => DeterminePause();
+        inputManager.InputActions.Player.PauseGame.performed -= _ => DeterminePause();
     }
     public void PauseGame()
     {
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None; 
+        Cursor.visible = true;
         pauseMenu.SetActive(true);
         isPaused = true;
     }
