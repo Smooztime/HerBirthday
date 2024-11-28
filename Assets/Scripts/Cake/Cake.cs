@@ -46,7 +46,7 @@ public class Cake : MonoBehaviour
         Debug.Log("Drop the cake!");
 
         //add checkPoint
-       // CheckPointManager.Instance.LoadCheckpoint();
+        CheckPointManager.Instance.LoadCheckpoint();
     }
 
     private void OnCollisionEnter(Collision collision)
