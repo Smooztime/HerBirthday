@@ -37,19 +37,19 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LookAt"",
+                    ""name"": ""PlayerRotation"",
                     ""type"": ""PassThrough"",
                     ""id"": ""47199152-6d5c-43fe-afc8-1384a2fbde49"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""BalanceCake"",
                     ""type"": ""Value"",
-                    ""id"": ""b07dfb97-b3f0-4fa6-8b5c-e0ff3c901794"",
-                    ""expectedControlType"": ""Axis"",
+                    ""id"": ""82a6136c-8046-4790-9610-e7fc4e1c9150"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -121,48 +121,48 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""aacf6ffe-de76-4a9e-b8c2-05596101550d"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""LookAt"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Left-Right"",
-                    ""id"": ""9fc14337-0bd9-4e0f-a844-a2a6940ce5de"",
+                    ""id"": ""5e115b43-89ad-4f88-84a5-57544f4cd145"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BalanceCake"",
+                    ""action"": ""PlayerRotation"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""negative"",
-                    ""id"": ""cc21d305-3423-4666-90bd-ddd22f579103"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""fc9e6ec9-63a9-40ed-8aa5-47757310174a"",
+                    ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BalanceCake"",
+                    ""action"": ""PlayerRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""positive"",
-                    ""id"": ""81998208-f62e-4928-b3e5-d76c06ea7943"",
-                    ""path"": ""<Mouse>/rightButton"",
+                    ""id"": ""7fadd262-e0c2-4d4f-b2f9-79f735c3dc58"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5078ea1-e1dd-4b29-bf7b-15f25298fe5b"",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""BalanceCake"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
@@ -183,7 +183,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
-        m_Player_LookAt = m_Player.FindAction("LookAt", throwIfNotFound: true);
+        m_Player_PlayerRotation = m_Player.FindAction("PlayerRotation", throwIfNotFound: true);
         m_Player_BalanceCake = m_Player.FindAction("BalanceCake", throwIfNotFound: true);
         m_Player_PauseGame = m_Player.FindAction("PauseGame", throwIfNotFound: true);
     }
@@ -248,7 +248,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Movement;
-    private readonly InputAction m_Player_LookAt;
+    private readonly InputAction m_Player_PlayerRotation;
     private readonly InputAction m_Player_BalanceCake;
     private readonly InputAction m_Player_PauseGame;
     public struct PlayerActions
@@ -256,7 +256,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
-        public InputAction @LookAt => m_Wrapper.m_Player_LookAt;
+        public InputAction @PlayerRotation => m_Wrapper.m_Player_PlayerRotation;
         public InputAction @BalanceCake => m_Wrapper.m_Player_BalanceCake;
         public InputAction @PauseGame => m_Wrapper.m_Player_PauseGame;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -271,9 +271,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
-            @LookAt.started += instance.OnLookAt;
-            @LookAt.performed += instance.OnLookAt;
-            @LookAt.canceled += instance.OnLookAt;
+            @PlayerRotation.started += instance.OnPlayerRotation;
+            @PlayerRotation.performed += instance.OnPlayerRotation;
+            @PlayerRotation.canceled += instance.OnPlayerRotation;
             @BalanceCake.started += instance.OnBalanceCake;
             @BalanceCake.performed += instance.OnBalanceCake;
             @BalanceCake.canceled += instance.OnBalanceCake;
@@ -287,9 +287,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
-            @LookAt.started -= instance.OnLookAt;
-            @LookAt.performed -= instance.OnLookAt;
-            @LookAt.canceled -= instance.OnLookAt;
+            @PlayerRotation.started -= instance.OnPlayerRotation;
+            @PlayerRotation.performed -= instance.OnPlayerRotation;
+            @PlayerRotation.canceled -= instance.OnPlayerRotation;
             @BalanceCake.started -= instance.OnBalanceCake;
             @BalanceCake.performed -= instance.OnBalanceCake;
             @BalanceCake.canceled -= instance.OnBalanceCake;
@@ -316,7 +316,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
-        void OnLookAt(InputAction.CallbackContext context);
+        void OnPlayerRotation(InputAction.CallbackContext context);
         void OnBalanceCake(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -7,35 +5,61 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerSO playerSO;
 
-    private Transform cam;
     private Vector2 _movement;
-    private Vector2 _rotation;
-    private Rigidbody rb;
+    private Rigidbody _rb;
+    private float _rotate;
+    private float _playerRotate;
+    private float balancePos;
+    private bool canControlRotate;
+    private TrayBalance _balance;
+    private CharacterController character;
+    private GroundCheck _groundCheck;
+
+    public Rigidbody RB => _rb;
+
+    public float PlayerRotate => _playerRotate;
+    public PlayerSO PlayerSO => playerSO;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        character = GetComponent<CharacterController>();
+        _groundCheck = GetComponent<GroundCheck>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Start()
     {
-        cam = Camera.main.transform;
+        _balance = GetComponentInChildren<TrayBalance>();
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
     private void FixedUpdate()
     {
         MovementHandler();
-        LookAt();
+        RotateHandler();
+        BalanceCakeHandler();
     }
 
     private void MovementHandler()
     {
-        Vector3 moveDir = cam.forward * _movement.y + cam.right * _movement.x;
+        Vector3 moveDir = new Vector3(_movement.x, 0f, _movement.y);
         moveDir.Normalize();
         moveDir.y = 0f;
+        
+        transform.Translate(moveDir * playerSO.playerSpeed * Time.deltaTime);
+    }
 
-        rb.velocity = moveDir;
-        rb.velocity *= playerSO.playerSpeed;
+    private void RotateHandler()
+    {
+        if(canControlRotate)
+        {
+            if (_rotate < 0f)
+                transform.Rotate(0f, -playerSO.RotateSpeed * Time.deltaTime, 0f);
+
+            else if (_rotate > 0f)
+                transform.Rotate(0f, playerSO.RotateSpeed * Time.deltaTime, 0f);
+        }
     }
 
     public void MovementInput(Vector2 input)
@@ -43,26 +67,24 @@ public class PlayerController : MonoBehaviour
         _movement = input;
     }
 
-    private void LookAt()
+    public void RotateInput(float value)
     {
-        _rotation.x = Mathf.Clamp(_rotation.x, -45f, 45f);
-        transform.eulerAngles = new Vector3(transform.rotation.x, _rotation.y, transform.rotation.z);
-        cam.localRotation = Quaternion.Euler(_rotation.x, 0, 0);
-    }
-
-    public void MousePosition(Vector2 mouse)
-    {
-        _rotation.x -= mouse.y * playerSO.sensitivity * Time.fixedDeltaTime;
-        _rotation.y += mouse.x * playerSO.sensitivity * Time.fixedDeltaTime;
+        _rotate = value;
     }
 
     private void BalanceCakeHandler()
     {
-
+        float angleZ = balancePos * 15f;
+        _balance.TrayRotation(transform ,angleZ);
     }
 
-    public void BalanceCakeInput(float value)
+    public void BalanceInput(Vector2 mouse)
     {
+        balancePos = (mouse.x - (Screen.width / 2)) / (Screen.width / 2);
+    }
 
+    public void SetRotateControl(bool value)
+    {
+        canControlRotate = value;
     }
 }

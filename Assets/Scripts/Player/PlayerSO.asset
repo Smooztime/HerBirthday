@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd01debc083e414cb6e04472c7b2f41, type: 3}
   m_Name: PlayerSO
   m_EditorClassIdentifier: 
-  playerSpeed: 6
-  sensitivity: 5
-  balanceSpeed: 0
+  playerSpeed: 3
+  RotateSpeed: 200
+  balanceSpeed: 200

@@ -23,9 +23,7 @@ public class PlayerInputController : MonoBehaviour
 
         inputActions.Enable();
         inputActions.Player.Movement.performed += ctx => controller.MovementInput(ctx.ReadValue<Vector2>());
-        inputActions.Player.LookAt.performed += ctx => controller.MousePosition(ctx.ReadValue<Vector2>());
-        inputActions.Player.BalanceCake.performed += ctx => controller.BalanceCakeInput(ctx.ReadValue<float>());
-
-    
+        inputActions.Player.PlayerRotation.performed += ctx => controller.RotateInput(ctx.ReadValue<float>());
+        inputActions.Player.BalanceCake.performed += ctx => controller.BalanceInput(ctx.ReadValue<Vector2>());
     }
 }

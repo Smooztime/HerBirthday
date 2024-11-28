@@ -14,6 +14,7 @@ public class DoorTrigger : MonoBehaviour
         {
             //load another room
             doorTrigger?.Invoke();
+            Debug.Log("player enter room");
         }
     }
     private void OnTriggerExit(Collider other)

@@ -7,6 +7,6 @@ using UnityEngine;
 public class PlayerSO : ScriptableObject
 {
     public float playerSpeed;
-    public float sensitivity;
+    public float RotateSpeed;
     public float balanceSpeed;
 }

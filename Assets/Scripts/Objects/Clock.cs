@@ -19,10 +19,7 @@ public class ClockRotation : MonoBehaviour
 
         if (isRotating)
         {
-
-
             currentAngle += rotationSpeed * Time.fixedDeltaTime;
-
 
             if (currentAngle >= 360f)
             {
@@ -35,8 +32,11 @@ public class ClockRotation : MonoBehaviour
     }
     public void StartRotateClock()
     {
-        isRotating = true;
-        SoundManager.Instance.PlaySFX("ClockRotate", 1f);
+        if (!isRotating)
+        {
+            isRotating = true;
+            SoundManager.Instance.PlaySFX("ClockRotate", 1f);
+        }
     }
     public void StopRotateClock()
     {

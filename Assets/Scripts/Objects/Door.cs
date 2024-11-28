@@ -1,19 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
     [SerializeField] private GameObject doorPivot;
-    public float rotationAngle = 90f; 
-    public float rotationDuration = 1f; 
+    public float rotationAngle = 90f;
+    public float rotationDuration = 1f;
 
     private Quaternion initialRotation;
     private Quaternion targetRotation;
     private bool isRotating = false;
     private float rotationTime = 0f;
-    private bool isOpened =false;
+    private bool isOpened = false;
 
     [SerializeField] DoorTrigger trigger;
     void Start()
@@ -25,7 +22,7 @@ public class Door : MonoBehaviour
 
     private void OnEnable()
     {
-       
+
         if (trigger != null)
         {
             trigger.doorTrigger.AddListener(OpenDoor);
@@ -35,7 +32,7 @@ public class Door : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
         if (trigger != null)
         {
             trigger.doorTrigger.RemoveListener(OpenDoor);
@@ -44,12 +41,13 @@ public class Door : MonoBehaviour
     }
     public void OpenDoor()
     {
+        Debug.Log("open door");
         if (!isRotating)
         {
-          
+
             isRotating = true;
             rotationTime = 0f;
-            SoundManager.Instance.PlaySFX("OpenDoor",0.8f);
+            SoundManager.Instance.PlaySFX("OpenDoor", 0.8f);
         }
     }
     private void CloseDoor()
@@ -59,13 +57,13 @@ public class Door : MonoBehaviour
 
             isRotating = true;
             rotationTime = 0f;
-            initialRotation = doorPivot.transform.rotation; 
+            initialRotation = doorPivot.transform.rotation;
             targetRotation = Quaternion.Euler(0, 0, 0) * Quaternion.identity;
         }
     }
     void FixedUpdate()
     {
-       
+
         if (isRotating)
         {
             rotationTime += Time.fixedDeltaTime / rotationDuration;
@@ -73,9 +71,9 @@ public class Door : MonoBehaviour
             if (rotationTime >= 1f)
             {
                 isRotating = false;
-                isOpened = targetRotation == Quaternion.Euler(0, rotationAngle, 0); 
+                isOpened = targetRotation == Quaternion.Euler(0, rotationAngle, 0);
             }
-        } 
+        }
 
     }
 }

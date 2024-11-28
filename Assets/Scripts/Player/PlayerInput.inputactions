@@ -15,19 +15,19 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LookAt",
+                    "name": "PlayerRotation",
                     "type": "PassThrough",
                     "id": "47199152-6d5c-43fe-afc8-1384a2fbde49",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "BalanceCake",
                     "type": "Value",
-                    "id": "b07dfb97-b3f0-4fa6-8b5c-e0ff3c901794",
-                    "expectedControlType": "Axis",
+                    "id": "82a6136c-8046-4790-9610-e7fc4e1c9150",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -99,48 +99,48 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "aacf6ffe-de76-4a9e-b8c2-05596101550d",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "LookAt",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
                     "name": "Left-Right",
-                    "id": "9fc14337-0bd9-4e0f-a844-a2a6940ce5de",
+                    "id": "5e115b43-89ad-4f88-84a5-57544f4cd145",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BalanceCake",
+                    "action": "PlayerRotation",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "cc21d305-3423-4666-90bd-ddd22f579103",
-                    "path": "<Mouse>/leftButton",
+                    "id": "fc9e6ec9-63a9-40ed-8aa5-47757310174a",
+                    "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BalanceCake",
+                    "action": "PlayerRotation",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "81998208-f62e-4928-b3e5-d76c06ea7943",
-                    "path": "<Mouse>/rightButton",
+                    "id": "7fadd262-e0c2-4d4f-b2f9-79f735c3dc58",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerRotation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f5078ea1-e1dd-4b29-bf7b-15f25298fe5b",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "BalanceCake",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",

@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934026107500375101}
-  - component: {fileID: 5913109584702700820}
-  - component: {fileID: 232637949065924672}
+  - component: {fileID: 6506565141662488629}
+  - component: {fileID: 8969290500711700347}
   m_Layer: 0
   m_Name: GiftBox
   m_TagString: Untagged
@@ -28,13 +28,29 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.65, y: 4.05, z: 26.25}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5823450695037833063}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5913109584702700820
+--- !u!114 &6506565141662488629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978904894466581535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ebffe88bfdf1e4ba9a7e90ccefe466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonPerfabs: {fileID: 6852127642520852454, guid: ef998169d26ce4642925cc10b7a9c58a,
+    type: 3}
+  balloonCount: 5
+  index: 0
+--- !u!65 &8969290500711700347
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,22 +69,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.869102, y: 3.1008816, z: 3.2620487}
-  m_Center: {x: -0.25466657, y: -1.0504408, z: 0.10171795}
---- !u!114 &232637949065924672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7978904894466581535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ebffe88bfdf1e4ba9a7e90ccefe466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  balloonPerfabs: {fileID: 659650484088266799, guid: 2c54156b63575824e90bce32138ecaa6,
-    type: 3}
+  m_Size: {x: 14.44, y: 1.19, z: 3.02}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8493362019956444616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,6 +79,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4934026107500375101}
     m_Modifications:
+    - target: {fileID: 385990699453360941, guid: 2c19fab78a17c0d46a0af518a533d47d,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 682
+      objectReference: {fileID: 0}
+    - target: {fileID: 560571146443761969, guid: 2c19fab78a17c0d46a0af518a533d47d,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1487
+      objectReference: {fileID: 0}
     - target: {fileID: 2670483174873039535, guid: 2c19fab78a17c0d46a0af518a533d47d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,6 +143,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GiftBox3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119926618233010979, guid: 2c19fab78a17c0d46a0af518a533d47d,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2098
+      objectReference: {fileID: 0}
+    - target: {fileID: 9200989052800428423, guid: 2c19fab78a17c0d46a0af518a533d47d,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

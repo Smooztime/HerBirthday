@@ -2555,6 +2555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed828ecb553019543a7a9195f65f431e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatingSpeed: 0.6
+  floatingSpeed: 0.2
   floatingHeight: 0.6
   isSpawned: 0
