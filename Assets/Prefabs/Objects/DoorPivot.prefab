@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPivot: {fileID: 2039167602006149377}
-  rotationAngle: -90
+  rotationAngle: 90
   rotationDuration: 5
   trigger: {fileID: 78004168942174875}
 --- !u!1 &2039167602006149377
