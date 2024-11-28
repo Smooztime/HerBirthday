@@ -13,6 +13,8 @@ public class Door : MonoBehaviour
     private bool isOpened = false;
 
     [SerializeField] DoorTrigger trigger;
+
+    [SerializeField] int doorIndex=0;
     void Start()
     {
         rotationTime = 0f;
