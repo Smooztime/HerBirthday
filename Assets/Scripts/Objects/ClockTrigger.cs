@@ -15,7 +15,7 @@ public class ClockTrigger : MonoBehaviour
     {
         if (!other.GetComponent<PlayerController>())
         {
-            clock.StartRotateClock();
+            clock.StopRotateClock();
         }
     }
 }
