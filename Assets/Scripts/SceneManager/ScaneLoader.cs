@@ -34,8 +34,9 @@ public class SceneLoader : MonoBehaviour
         if (!sceneLoaded && trigger != null && trigger.DoorId()==3)
         {
 
-         
-            name = "LoadLast";
+
+            //name = "LoadLast";
+            name = "Room5";
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
             sceneLoaded =true ;
         }

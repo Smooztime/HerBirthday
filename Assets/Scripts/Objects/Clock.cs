@@ -27,7 +27,7 @@ public class ClockRotation : MonoBehaviour
             }
 
 
-            clockHand.rotation = Quaternion.Euler(0f, 0f, currentAngle);
+            clockHand.rotation = Quaternion.Euler(0f, currentAngle, 0f);
         }
     }
     public void StartRotateClock()
@@ -41,5 +41,6 @@ public class ClockRotation : MonoBehaviour
     public void StopRotateClock()
     {
         isRotating = false;
+        SoundManager.Instance.StopSFX("ClockRotate");
     }
 }

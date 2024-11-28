@@ -46,22 +46,21 @@ public class SoundManager: MonoBehaviour
         }
     }
 
-    public void PlaySFX(string name)
+    public void StopSFX(string name)
     {
-        Sound s = Array.Find(sfx, x => x.name == name);
+        Debug.Log("stop sound"+name);
 
-        if (s != null)
+       Sound s = Array.Find(sfx, x => x.name == name);
+        if (s != null && sfxSource.clip == s.clip && sfxSource.isPlaying)
         {
-            float originalBgmVolume = bgmSource.volume;
-            sfxSource.volume = sfxVolume;
-            sfxSource.PlayOneShot(s.clip);
-            bgmSource.volume = originalBgmVolume;
+            sfxSource.Stop(); 
         }
         else
         {
-            Debug.Log("SFX not found");
+            Debug.Log($"SFX '{name}' is not currently playing or was not found.");
         }
     }
+
 
     public void PlaySFX(string name, float volume)
     {
