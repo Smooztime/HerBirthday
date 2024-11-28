@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     [SerializeField] DoorTrigger trigger;
+    private bool sceneLoaded =false;
     public void LoadScene(string name)
     {
         Time.timeScale = 1.0f;
@@ -17,7 +18,6 @@ public class SceneLoader : MonoBehaviour
         if (trigger != null)
         {
             trigger.doorTrigger.AddListener(LoadSceneAdditive);
-          
         }
     }
 
@@ -27,17 +27,17 @@ public class SceneLoader : MonoBehaviour
         if (trigger != null)
         {
             trigger.doorTrigger.RemoveListener(LoadSceneAdditive);
-         
         }
     }
     public void LoadSceneAdditive()
     {
-        if (trigger != null)
+        if (!sceneLoaded && trigger != null && trigger.DoorId()==3)
         {
 
-            Debug.Log("Load scene");
+         
             name = "LoadLast";
             SceneManager.LoadScene(name, LoadSceneMode.Additive);
+            sceneLoaded =true ;
         }
     }
 

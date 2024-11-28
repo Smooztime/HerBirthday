@@ -228,6 +228,9 @@ MonoBehaviour:
   doorTriggerExit:
     m_PersistentCalls:
       m_Calls: []
+  doorID: 0
+  sceneLoader: {fileID: 7957630739673296477, guid: 5217254b11347ef4bbbcc3bd0f9566f4,
+    type: 3}
 --- !u!1 &5228479718732325113
 GameObject:
   m_ObjectHideFlags: 0

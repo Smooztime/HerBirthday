@@ -14,7 +14,6 @@ public class Door : MonoBehaviour
 
     [SerializeField] DoorTrigger trigger;
 
-    [SerializeField] int doorIndex=0;
     void Start()
     {
         rotationTime = 0f;

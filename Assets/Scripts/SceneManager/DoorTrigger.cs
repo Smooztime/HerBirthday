@@ -20,6 +20,7 @@ public class DoorTrigger : MonoBehaviour
             Debug.Log("player enter room");
         }
     }
+    
     private void OnTriggerExit(Collider other)
     {
         if (!other.GetComponent<PlayerController>())
