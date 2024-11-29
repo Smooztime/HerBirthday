@@ -229,8 +229,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   doorID: 0
-  sceneLoader: {fileID: 7957630739673296477, guid: 5217254b11347ef4bbbcc3bd0f9566f4,
-    type: 3}
 --- !u!1 &5228479718732325113
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +240,6 @@ GameObject:
   - component: {fileID: 8130498740118864724}
   - component: {fileID: 8882891201798932483}
   - component: {fileID: 8479385350596464968}
-  - component: {fileID: 1489781276292285549}
   m_Layer: 0
   m_Name: DoorKnob
   m_TagString: Untagged
@@ -315,24 +312,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1489781276292285549
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5228479718732325113}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

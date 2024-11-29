@@ -13,6 +13,10 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!canOpen)
+        {
+            return;
+        }
         if (canOpen && other.GetComponent<PlayerController>())
         {
             //progress bar in level
@@ -24,6 +28,7 @@ public class DoorTrigger : MonoBehaviour
             {
                 SoundManager.Instance.PlaySFX("Fight", 1f);
             }
+          
         }
     }
 
