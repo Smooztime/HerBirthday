@@ -8,6 +8,8 @@ public class LoadMenu : MonoBehaviour
     [SerializeField] float time;
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         StartCoroutine(End());
     }
 

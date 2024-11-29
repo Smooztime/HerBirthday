@@ -16,7 +16,7 @@ public class SetLight : MonoBehaviour
             if (playerlight != null)
             {
                 playerlight.enabled = true;
-                playerlight.intensity = 120f; 
+                playerlight.intensity = 200f; 
             }
         }
     }
