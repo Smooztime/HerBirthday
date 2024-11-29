@@ -6,12 +6,14 @@ public class DisableCake : MonoBehaviour
 {
     [SerializeField] GameObject tray;
     [SerializeField] StuffsDisappear StuffsDisappear;
+    [SerializeField] GameObject progressBar;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<PlayerController>())
         {
             tray.SetActive(false);
+            progressBar.SetActive(false);
             StartCoroutine(StuffsDisappear.ActiveDisappear());
             SoundManager.Instance.StopBGM("Nandini");
             SoundManager.Instance.PlayBGM("HBD", 0.5f);
