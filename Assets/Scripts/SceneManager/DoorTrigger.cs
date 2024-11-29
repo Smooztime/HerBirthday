@@ -34,11 +34,6 @@ public class DoorTrigger : MonoBehaviour
                 SoundManager.Instance.StopBGM("BGM");
                 SoundManager.Instance.PlayBGM("Nandini", 0.5f);
             }
-            else if(this.doorID == 7)
-            {
-                SoundManager.Instance.StopBGM("Nandini");
-                SoundManager.Instance.PlayBGM("HBD", 0.5f);
-            }
         }
     }
 

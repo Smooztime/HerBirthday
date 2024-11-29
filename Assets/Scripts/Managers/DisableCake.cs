@@ -13,6 +13,8 @@ public class DisableCake : MonoBehaviour
         {
             tray.SetActive(false);
             StartCoroutine(StuffsDisappear.ActiveDisappear());
+            SoundManager.Instance.StopBGM("Nandini");
+            SoundManager.Instance.PlayBGM("HBD", 0.5f);
         }
     }
 }

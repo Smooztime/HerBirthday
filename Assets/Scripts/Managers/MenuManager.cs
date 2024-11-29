@@ -86,14 +86,18 @@ public class MenuManager : MonoBehaviour
     }
     private void HideControl()
     {
-       
-        playerControlMenu.SetActive(false);
+
+        //playerControlMenu.SetActive(false);
+        playerControlMenu.transform.GetChild(0).gameObject.SetActive(false);
+        playerControlMenu.transform.GetChild(2).gameObject.SetActive(false);
     }
 
-    private void ShowControl()
+    public void ShowControl()
     {
         ResumeGame();
-        playerControlMenu.SetActive(true);
+        //playerControlMenu.SetActive(true);
+        playerControlMenu.transform.GetChild(0).gameObject.SetActive(true);
+        playerControlMenu.transform.GetChild(2).gameObject.SetActive(true);
     }
     void Update()
     {

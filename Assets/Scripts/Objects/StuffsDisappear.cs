@@ -80,7 +80,7 @@ public class StuffsDisappear : MonoBehaviour
         {
             light.intensity = 0f;
         }
-
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("TheEnd");
     }
 }
