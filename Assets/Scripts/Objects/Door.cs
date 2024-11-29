@@ -48,7 +48,7 @@ public class Door : MonoBehaviour
 
             isRotating = true;
             rotationTime = 0f;
-            SoundManager.Instance.PlaySFX("OpenDoor", 0.8f);
+            SoundManager.Instance.PlaySFX("OpenDoor", 0.5f);
         }
     }
     private void CloseDoor()

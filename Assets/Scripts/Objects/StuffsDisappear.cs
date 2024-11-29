@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class StuffsDisappear : MonoBehaviour
 {
@@ -79,5 +80,7 @@ public class StuffsDisappear : MonoBehaviour
         {
             light.intensity = 0f;
         }
+
+        SceneManager.LoadScene("TheEnd");
     }
 }

@@ -30,11 +30,15 @@ public class DoorTrigger : MonoBehaviour
             //4 is the entrance of the room fighting
             if (this.doorID == 4)
             {
-                SoundManager.Instance.PlaySFX("Fight", 1f);
+                SoundManager.Instance.PlaySFX("Fight", 0.5f);
                 SoundManager.Instance.StopBGM("BGM");
                 SoundManager.Instance.PlayBGM("Nandini", 0.5f);
             }
-
+            else if(this.doorID == 7)
+            {
+                SoundManager.Instance.StopBGM("Nandini");
+                SoundManager.Instance.PlayBGM("HBD", 0.5f);
+            }
         }
     }
 
