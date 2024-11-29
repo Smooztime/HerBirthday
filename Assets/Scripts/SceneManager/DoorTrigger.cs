@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DoorTrigger : MonoBehaviour
 {
-    public UnityEvent doorTrigger;
-    public UnityEvent doorTriggerExit;
+    public Action doorTrigger;
+    public Action doorTriggerExit;
     private bool canOpen = true;
     [SerializeField] int doorID = 0;
     public int DoorId()

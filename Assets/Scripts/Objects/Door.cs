@@ -26,8 +26,8 @@ public class Door : MonoBehaviour
 
         if (trigger != null)
         {
-            trigger.doorTrigger.AddListener(OpenDoor);
-            trigger.doorTriggerExit.AddListener(CloseDoor);
+            trigger.doorTrigger += OpenDoor;
+            trigger.doorTriggerExit += CloseDoor;
         }
     }
 
@@ -36,8 +36,8 @@ public class Door : MonoBehaviour
 
         if (trigger != null)
         {
-            trigger.doorTrigger.RemoveListener(OpenDoor);
-            trigger.doorTriggerExit.RemoveListener(CloseDoor);
+            trigger.doorTrigger -= OpenDoor;
+            trigger.doorTriggerExit -= CloseDoor;
         }
     }
     public void OpenDoor()
