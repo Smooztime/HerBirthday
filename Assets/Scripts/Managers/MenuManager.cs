@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] Image progressBar;
 
     [SerializeField] public int activedRoom = 0;
-    [SerializeField] private int maxRoom = 7;
+    [SerializeField] private int maxRoom = 6;
     private void Awake()
     {
 

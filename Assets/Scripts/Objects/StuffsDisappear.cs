@@ -48,7 +48,7 @@ public class StuffsDisappear : MonoBehaviour
                 fadeTime += Time.deltaTime;
                 float t = fadeTime / fadeDuration;
 
-                colorAdjustments.postExposure.value = Mathf.Lerp(initialPostExposure, -3f, t);
+                colorAdjustments.postExposure.value = Mathf.Lerp(initialPostExposure, -50f, t);
 
 
                 yield return null;
