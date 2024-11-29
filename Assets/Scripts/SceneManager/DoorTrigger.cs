@@ -9,7 +9,7 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] int doorID = 0;
     public int DoorId()
     { return doorID; }
-    private bool isActived = false;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,11 +24,12 @@ public class DoorTrigger : MonoBehaviour
 
             doorTrigger?.Invoke();
             Debug.Log("player enter room");
-            if (doorID == 4)
+            //4 is the entrance of the room fighting
+            if (this.doorID == 4)
             {
                 SoundManager.Instance.PlaySFX("Fight", 1f);
             }
-          
+
         }
     }
 
