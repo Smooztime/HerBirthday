@@ -27,7 +27,7 @@ public class ClockRotation : MonoBehaviour
             }
 
 
-            clockHand.rotation = Quaternion.Euler(0f, currentAngle, 0f);
+            clockHand.rotation = Quaternion.Euler(0f, -currentAngle, 0f);
         }
     }
     public void StartRotateClock()

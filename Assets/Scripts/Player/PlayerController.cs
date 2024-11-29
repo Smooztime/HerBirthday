@@ -54,10 +54,10 @@ public class PlayerController : MonoBehaviour
         if (canControlRotate)
         {
             if (_rotate < 0f)
-                transform.Rotate(0f, -playerSO.RotateSpeed * Time.deltaTime, 0f);
+                _playerRotate += -playerSO.RotateSpeed * Time.deltaTime;
 
             else if (_rotate > 0f)
-                transform.Rotate(0f, playerSO.RotateSpeed * Time.deltaTime, 0f);
+                _playerRotate += playerSO.RotateSpeed * Time.deltaTime;
         }
     }
 

@@ -3,18 +3,18 @@ using UnityEngine;
 public class RoseSpawn : MonoBehaviour
 {
     [SerializeField] GameObject rosePrefab;
-    [SerializeField] Transform topLeft;
+    /*[SerializeField] Transform topLeft;
     [SerializeField] Transform bottomRight;
-    [SerializeField] float spacing = 1.0f;
+    [SerializeField] float spacing = 1.0f;*/
 
     void Start()
     {
-        FillWithRoses();
+        GameObject roses = Instantiate(rosePrefab, transform.position, Quaternion.identity, gameObject.transform);
     }
 
     void FillWithRoses()
     {
-        if (rosePrefab == null || topLeft == null || bottomRight == null)
+        /*if (rosePrefab == null || topLeft == null || bottomRight == null)
         {
 
             return;
@@ -42,7 +42,7 @@ public class RoseSpawn : MonoBehaviour
                 GameObject rose = Instantiate(rosePrefab, spawnPosition, Quaternion.identity);
                 Destroy(rose, 10f);
             }
-        }
+        }*/
     }
 }
 

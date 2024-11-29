@@ -33,7 +33,8 @@ public class CheckPointManager : MonoBehaviour
         cake.position = player.transform.GetChild(1).position + new Vector3(0f, 0.2f, 0f);
         cake.rotation = Quaternion.Euler(0f,0f,0f);
         cake.GetComponent<Cake>().RB.angularVelocity = Vector3.zero;
-        if(cake !=null)
+        cake.GetComponent<Cake>().RB.velocity = Vector3.zero;
+        if (cake !=null)
         {
             cake.GetComponent<Cake>().ResetRigidbody();
         }

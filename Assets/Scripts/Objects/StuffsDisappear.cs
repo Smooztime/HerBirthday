@@ -14,12 +14,7 @@ public class StuffsDisappear : MonoBehaviour
     private float _time;
     private float timing = 2f;
 
-    private void Start()
-    {
-        StartCoroutine(ActiveDisappear());
-    }
-
-    private IEnumerator ActiveDisappear()
+    public IEnumerator ActiveDisappear()
     {
         while (stuffsCount < stuffs.Length)
         {

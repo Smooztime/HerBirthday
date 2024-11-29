@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
@@ -27,7 +28,10 @@ public class GroundCheck : MonoBehaviour
         else
         {
             Debug.Log("Eh");
+            float currentZAngle = transform.eulerAngles.z;
+            float newZAngle = Mathf.LerpAngle(currentZAngle, 0f, alignSpeed * Time.deltaTime);
             player.SetRotateControl(true);
+            transform.rotation = Quaternion.Euler(0f, player.PlayerRotate, newZAngle);
         }
     }
 
@@ -41,5 +45,10 @@ public class GroundCheck : MonoBehaviour
         Quaternion lookAt = Quaternion.LookRotation(targetLookAt);
 
         transform.rotation = lookAt * Quaternion.Euler(0f, 0f, newZAngle);
+
+        if(mask == LayerMask.NameToLayer("Ground"))
+        {
+            
+        }
     }
 }

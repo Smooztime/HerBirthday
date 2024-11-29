@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DoorTrigger : MonoBehaviour
 {
+    [SerializeField] Collider doorCollider;
     public Action doorTrigger;
     public Action doorTriggerExit;
     private bool canOpen = true;
@@ -40,6 +42,13 @@ public class DoorTrigger : MonoBehaviour
         {
             doorTriggerExit?.Invoke();
             canOpen = false;
+            StartCoroutine(TurnOnCollider());
         }
+    }
+
+    private IEnumerator TurnOnCollider()
+    {
+        yield return new WaitForSeconds(2f);
+        doorCollider.enabled = true;
     }
 }
