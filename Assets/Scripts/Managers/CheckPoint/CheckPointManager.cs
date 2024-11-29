@@ -6,6 +6,7 @@ public class CheckPointManager : MonoBehaviour
     private Vector3 lastCheckpointPosition;
     [SerializeField] private GameObject player;
     [SerializeField] private Transform cake;
+   
     private void Awake()
     {
         if (Instance == null)

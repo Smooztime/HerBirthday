@@ -12,7 +12,7 @@ public class SoundManager: MonoBehaviour
 
     private void Start()
     { 
-        PlayBGM(bgmName);
+        PlayBGM("BGM");
     }
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class SoundManager: MonoBehaviour
         Instance = this;
 
         
-        // DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void PlayBGM(string name)
@@ -46,20 +46,20 @@ public class SoundManager: MonoBehaviour
         }
     }
 
-    public void StopSFX(string name)
-    {
-        Debug.Log("stop sound"+name);
+    //public void StopSFX(string name)
+    //{
+    //    Debug.Log("stop sound"+name);
 
-       Sound s = Array.Find(sfx, x => x.name == name);
-        if (s != null && sfxSource.clip == s.clip && sfxSource.isPlaying)
-        {
-            sfxSource.Stop(); 
-        }
-        else
-        {
-            Debug.Log($"SFX '{name}' is not currently playing or was not found.");
-        }
-    }
+    //   Sound s = Array.Find(sfx, x => x.name == name);
+    //    if (s != null && sfxSource.clip == s.clip && sfxSource.isPlaying)
+    //    {
+    //        sfxSource.Stop(); 
+    //    }
+    //    else
+    //    {
+    //        Debug.Log($"SFX '{name}' is not currently playing or was not found.");
+    //    }
+    //}
 
 
     public void PlaySFX(string name, float volume)

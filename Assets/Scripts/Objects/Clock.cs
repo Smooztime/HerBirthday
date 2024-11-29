@@ -41,6 +41,6 @@ public class ClockRotation : MonoBehaviour
     public void StopRotateClock()
     {
         isRotating = false;
-        SoundManager.Instance.StopSFX("ClockRotate");
+       // SoundManager.Instance.StopSFX("ClockRotate");
     }
 }
