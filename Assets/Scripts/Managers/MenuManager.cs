@@ -1,13 +1,34 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance { get; private set; }
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject playerControlMenu;
     private bool isPaused = false;
     [SerializeField] private PlayerInputController inputManager;
 
+    [Header("ProgressBar Display")]
+    [SerializeField] Image progressBar;
+
+    [SerializeField] public int activedRoom = 0;
+    [SerializeField] private int maxRoom = 7;
+    private void Awake()
+    {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+
+        //DontDestroyOnLoad(gameObject);
+    }
 
     public void DeterminePause()
     {
@@ -25,6 +46,9 @@ public class MenuManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         inputManager.InputActions.Player.PauseGame.performed += _ => DeterminePause();
+
+       
+        progressBar.fillAmount = Mathf.Clamp(2 / maxRoom, 0, 1);
     }
 
 
@@ -35,6 +59,8 @@ public class MenuManager : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None; 
+        Cursor.visible = true;
         pauseMenu.SetActive(true);
         isPaused = true;
     }
@@ -76,6 +102,12 @@ public class MenuManager : MonoBehaviour
         {
             HideControl();
         }
+
+        //progress bar display
+        if (activedRoom > 0)
+        {
+            progressBar.fillAmount = Mathf.Clamp((float)activedRoom / maxRoom, 0, 1);
+        }
     }
 
     private bool AnyPlayerInput()
@@ -83,5 +115,9 @@ public class MenuManager : MonoBehaviour
 
         return Input.anyKeyDown;
     }
+
+
+
+   
 
 }

@@ -19,10 +19,7 @@ public class ClockRotation : MonoBehaviour
 
         if (isRotating)
         {
-
-
             currentAngle += rotationSpeed * Time.fixedDeltaTime;
-
 
             if (currentAngle >= 360f)
             {
@@ -30,16 +27,20 @@ public class ClockRotation : MonoBehaviour
             }
 
 
-            clockHand.rotation = Quaternion.Euler(0f, 0f, currentAngle);
+            clockHand.rotation = Quaternion.Euler(0f, currentAngle, 0f);
         }
     }
     public void StartRotateClock()
     {
-        isRotating = true;
-        SoundManager.Instance.PlaySFX("ClockRotate", 1f);
+        if (!isRotating)
+        {
+            isRotating = true;
+            SoundManager.Instance.PlaySFX("ClockRotate", 1f);
+        }
     }
     public void StopRotateClock()
     {
         isRotating = false;
+       // SoundManager.Instance.StopSFX("ClockRotate");
     }
 }

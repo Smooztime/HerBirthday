@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedColor: {fileID: 240853622}
-  targetScene: Xinghua
+  targetScene: LevelWithCode
 --- !u!65 &518897796
 BoxCollider:
   m_ObjectHideFlags: 0

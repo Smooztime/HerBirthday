@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClockTrigger : MonoBehaviour
 {
-   [SerializeField] private ClockRotation clock;
-  
-  
-
+    [SerializeField] private ClockRotation clock;
     void OnTriggerEnter(Collider other)
     {
         if (!other.GetComponent<PlayerController>())
@@ -20,7 +15,7 @@ public class ClockTrigger : MonoBehaviour
     {
         if (!other.GetComponent<PlayerController>())
         {
-            clock.StartRotateClock();
+            clock.StopRotateClock();
         }
     }
 }
