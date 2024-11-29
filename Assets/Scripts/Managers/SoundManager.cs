@@ -13,7 +13,7 @@ public class SoundManager: MonoBehaviour
 
     private void Start()
     { 
-        PlayBGM("BGM");
+        PlayBGM("BGM", 0.1f);
     }
     private void Awake()
     {
@@ -30,16 +30,17 @@ public class SoundManager: MonoBehaviour
         //DontDestroyOnLoad(gameObject);
     }
 
-    private void PlayBGM(string name)
+    public void PlayBGM(string name, float vol)
     {
         Sound s = Array.Find(bgm, x => x.name == name);
 
         if ( s != null)
         {
             bgmSource.clip = s.clip;
-            bgmVolume = 0.1f;
+            bgmVolume = vol;
             bgmSource.volume = bgmVolume;  
             bgmSource.Play();
+            bgmSource.loop = true;
         }
         else
         {
@@ -55,9 +56,9 @@ public class SoundManager: MonoBehaviour
         if (s != null)
         {
             float originalBgmVolume = bgmSource.volume;
-            sfxSource.volume = sfxVolume;
+            //sfxSource.volume = sfxVolume;
             sfxSource.PlayOneShot(s.clip);
-            bgmSource.volume = volume;
+            sfxSource.volume = volume;
         }
         else
         {
@@ -71,6 +72,19 @@ public class SoundManager: MonoBehaviour
         if (s != null)
         {
             sfxSource.Stop();
+        }
+        else
+        {
+            Debug.Log("SFX not found");
+        }
+    }
+
+    public void StopBGM(string name)
+    {
+        Sound s = Array.Find(sfx, x => x.name == name);
+        if (s != null)
+        {
+            bgmSource.Stop();
         }
         else
         {

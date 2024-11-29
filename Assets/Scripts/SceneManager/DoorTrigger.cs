@@ -31,6 +31,8 @@ public class DoorTrigger : MonoBehaviour
             if (this.doorID == 4)
             {
                 SoundManager.Instance.PlaySFX("Fight", 1f);
+                SoundManager.Instance.StopBGM("BGM");
+                SoundManager.Instance.PlayBGM("Nandini", 0.5f);
             }
 
         }
