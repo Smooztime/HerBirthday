@@ -15,7 +15,7 @@ public class GiftBox : MonoBehaviour
         {
             SpawnBalloons();
             Destroy(gameObject);
-            SoundManager.Instance.PlaySFX("GiftBox",1f);
+            SoundManager.Instance.PlaySFX("Scare",1f);
         }
     }
     private void SpawnBalloons()

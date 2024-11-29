@@ -16,6 +16,7 @@ public class ClockTrigger : MonoBehaviour
         if (!other.GetComponent<PlayerController>())
         {
             clock.StopRotateClock();
+            SoundManager.Instance.StopSFX("ClockRotate");
         }
     }
 }

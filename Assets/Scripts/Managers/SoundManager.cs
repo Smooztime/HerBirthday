@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SoundManager: MonoBehaviour
 {
@@ -57,6 +58,19 @@ public class SoundManager: MonoBehaviour
             sfxSource.volume = sfxVolume;
             sfxSource.PlayOneShot(s.clip);
             bgmSource.volume = volume;
+        }
+        else
+        {
+            Debug.Log("SFX not found");
+        }
+    }
+
+    public void StopSFX(string name)
+    {
+        Sound s = Array.Find(sfx, x => x.name == name);
+        if (s != null)
+        {
+            sfxSource.Stop();
         }
         else
         {

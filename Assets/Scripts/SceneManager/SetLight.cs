@@ -11,11 +11,12 @@ public class SetLight : MonoBehaviour
         if (other.GetComponent<PlayerController>())
         {
             Debug.Log("player get light");
-            playerlight.transform.SetParent(other.transform);
+            playerlight.transform.SetParent(player.transform);
+            playerlight.transform.position = player.transform.position + new Vector3(0f, 3.5f, 4f);
             if (playerlight != null)
             {
                 playerlight.enabled = true;
-                playerlight.intensity = 50f; 
+                playerlight.intensity = 120f; 
             }
         }
     }
