@@ -28,7 +28,7 @@ public class CheckPointManager : MonoBehaviour
 
     public void LoadCheckpoint()
     {
-        player.transform.position = lastCheckpointPosition+new Vector3(0f,1f,0f);
+        player.transform.position = lastCheckpointPosition + new Vector3(0f,1f,0f);
         cake.SetParent(player.transform.GetChild(1));
         cake.position = player.transform.GetChild(1).position + new Vector3(0f, 0.2f, 0f);
         cake.rotation = Quaternion.Euler(0f,0f,0f);

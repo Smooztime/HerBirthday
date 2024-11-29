@@ -11,16 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelWithCode.unity
     guid: f9002a02891002e4fb1f692af36731b6
-  - enabled: 1
-    path: Assets/Scenes/Room4.unity
-    guid: db00f4da047ddfe4ca945638f4323fcb
-  - enabled: 1
-    path: Assets/Scenes/Room5.unity
-    guid: e2c280194b79c594faeb5afede6dbcb4
-  - enabled: 1
-    path: Assets/Scenes/Room6.unity
-    guid: df5c119ec26ffc04bbb5c1b96c8c3a3f
-  - enabled: 1
-    path: Assets/Scenes/RoomLast.unity
-    guid: dbff607a3e8d9ef4ba0a3cf7ea6328ac
   m_configObjects: {}
