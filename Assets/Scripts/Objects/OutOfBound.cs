@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OutOfBound : MonoBehaviour
@@ -20,14 +19,14 @@ public class OutOfBound : MonoBehaviour
             }
             StartCoroutine(ReSpawn());
         }
-        
+
     }
 
     private IEnumerator ReSpawn()
     {
         isRespawning = true;
         Debug.Log(isRespawning);
-        if(player != null)
+        if (player != null)
         {
             yield return new WaitForSeconds(3f);
             player.GetComponent<Collider>().enabled = true;

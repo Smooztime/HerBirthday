@@ -7,6 +7,8 @@ public class Cake : MonoBehaviour
     private Rigidbody rb;
     private bool _isCakeDrop;
     public Vector3 dropPosition;
+
+    public Rigidbody RB => rb;
     public void ResetRigidbody()
     {
         rb.velocity = Vector3.zero;

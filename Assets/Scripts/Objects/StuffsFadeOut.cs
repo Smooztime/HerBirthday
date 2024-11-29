@@ -8,16 +8,16 @@ public class StuffsFadeOut : MonoBehaviour
 
     private void Update()
     {
-        if(isFadeOut)
+        if (isFadeOut)
         {
             StartCoroutine(FadeOut());
-        }    
+        }
     }
 
     private IEnumerator FadeOut()
     {
         var stuffMat = gameObject.GetComponent<Renderer>();
-        if(stuffMat != null)
+        if (stuffMat != null)
         {
             yield return StartCoroutine(FadeAway(stuffMat.material));
         }
@@ -26,12 +26,12 @@ public class StuffsFadeOut : MonoBehaviour
             Renderer[] stuffMats = gameObject.GetComponentsInChildren<Renderer>();
             List<Coroutine> fadeCoroutine = new List<Coroutine>();
 
-            foreach(Renderer stuff in stuffMats)
+            foreach (Renderer stuff in stuffMats)
             {
                 fadeCoroutine.Add(StartCoroutine(FadeAway(stuff.material)));
             }
 
-            foreach(Coroutine fade in fadeCoroutine)
+            foreach (Coroutine fade in fadeCoroutine)
             {
                 yield return fade;
             }
@@ -62,6 +62,6 @@ public class StuffsFadeOut : MonoBehaviour
 
     public void SetIsFadeOut(bool value)
     {
-            isFadeOut = value;
+        isFadeOut = value;
     }
 }

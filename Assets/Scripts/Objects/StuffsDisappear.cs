@@ -58,7 +58,7 @@ public class StuffsDisappear : MonoBehaviour
                 yield return null;
             }
         }
-            
+
 
         float[] startIntensities = new float[lights.Length];
         for (int i = 0; i < lights.Length; i++)

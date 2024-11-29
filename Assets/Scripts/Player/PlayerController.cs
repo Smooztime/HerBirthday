@@ -1,4 +1,3 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -46,13 +45,13 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = new Vector3(_movement.x, 0f, _movement.y);
         moveDir.Normalize();
         moveDir.y = 0f;
-        
+
         transform.Translate(moveDir * playerSO.playerSpeed * Time.deltaTime);
     }
 
     private void RotateHandler()
     {
-        if(canControlRotate)
+        if (canControlRotate)
         {
             if (_rotate < 0f)
                 transform.Rotate(0f, -playerSO.RotateSpeed * Time.deltaTime, 0f);
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
     private void BalanceCakeHandler()
     {
         float angleZ = balancePos * 15f;
-        _balance.TrayRotation(transform ,angleZ);
+        _balance.TrayRotation(transform, angleZ);
     }
 
     public void BalanceInput(Vector2 mouse)
